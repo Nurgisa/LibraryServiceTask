@@ -1,0 +1,12 @@
+CREATE TABLE IF NOT EXISTS authors(
+  id BIGINT AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(500)
+);
+
+
+CREATE TABLE IF NOT EXISTS books( id BIGINT AUTO_INCREMENT PRIMARY KEY,
+isbn VARCHAR(50) NOT NULL, title VARCHAR(1000),
+date_published DATE, genre VARCHAR(500),
+author_id BIGINT,
+CONSTRAINT fk_books_author FOREIGN key (author_id)
+REFERENCES authors(id) MATCH simple );
